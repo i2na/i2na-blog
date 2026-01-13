@@ -172,3 +172,28 @@ GOOGLE_CLIENT_SECRET=your-google-client-secret
 BASE_URL=http://localhost:5174
 VITE_BASE_URL=http://localhost:5174
 ```
+
+### 7. Members
+
+<table>
+  <tr>
+    <th align="center">Developer</th>
+    <th align="center">Developer</th>
+  </tr>
+  <tr>
+    <td align="center">이예나</td>
+    <td align="center">김예영</td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/i2na">
+        <img src="https://avatars.githubusercontent.com/u/147997324?v=4" alt="yena-lee" width="100" height="100">
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/yezzero">
+        <img src="https://avatars.githubusercontent.com/u/156979966?v=4" alt="yeyoung-kim" width="100" height="100">
+      </a>
+    </td>
+  </tr>
+</table>
