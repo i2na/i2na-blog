@@ -1,0 +1,42 @@
+export const GITHUB = {
+    REPO_OWNER: process.env.POSTS_REPO_OWNER,
+    POSTS_REPO_NAME: process.env.POSTS_REPO_NAME,
+    API_BASE_URL: "https://api.github.com",
+    USER_AGENT: "heymark-api",
+};
+
+export const ENV_VARS = {
+    POSTS_GITHUB_TOKEN: process.env.POSTS_GITHUB_TOKEN,
+    GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
+    GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+    BASE_URL: process.env.BASE_URL,
+    VITE_GOOGLE_CLIENT_ID: process.env.VITE_GOOGLE_CLIENT_ID,
+    VITE_BASE_URL: process.env.VITE_BASE_URL,
+};
+
+export const URLS = {
+    DEPLOYMENT_BASE: "https://blog.yena.io.kr",
+    GOOGLE_TOKEN_ENDPOINT: "https://oauth2.googleapis.com/token",
+    GOOGLE_USERINFO_ENDPOINT: "https://www.googleapis.com/oauth2/v2/userinfo",
+};
+
+export const DEFAULTS = {
+    DEFAULT_AUTHOR_EMAIL: "",
+    DEFAULT_VISIBILITY: "private",
+    AUTH_TOKEN_EXPIRY_DAYS: 30,
+};
+
+export const GIT = {
+    COMMIT_MESSAGE_PREFIX: "post: add",
+    DEFAULT_BRANCH: "main",
+};
+
+export const FILE = {
+    MD_EXTENSION: ".md",
+    CONFIG_FILE_NAME: "~/.heymark-config.json",
+};
+
+export const FRONTMATTER = {
+    VISIBILITY_PUBLIC: "public",
+    VISIBILITY_PRIVATE: "private",
+};
