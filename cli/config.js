@@ -11,11 +11,8 @@ export async function getConfig() {
         const config = JSON.parse(content);
 
         return {
-            heymarkPath: config.heymarkPath,
-            postsRepoPath: config.postsRepoPath,
-            heymarkGitRemote: config.heymarkGitRemote,
             postsGitRemote: config.postsGitRemote,
-            baseUrl: config.baseUrl,
+            postsRepoPath: config.postsRepoPath,
         };
     } catch (error) {
         console.error(chalk.red("✗ Config file not found"));

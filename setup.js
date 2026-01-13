@@ -2,25 +2,16 @@ import inquirer from "inquirer";
 import { saveConfig } from "./cli/config.js";
 import chalk from "chalk";
 import path from "path";
-import { GITHUB, URLS } from "./constants.js";
 
 async function setup() {
-    console.log(chalk.bold("\n🗂️  Heymark Setup\n"));
+    console.log(chalk.bold("\n🗂️  Heymark CLI Setup\n"));
     console.log(chalk.dim("Please provide the following information:\n"));
-
-    const currentHeymarkPath = process.cwd();
 
     const answers = await inquirer.prompt([
         {
             type: "input",
-            name: "heymarkPath",
-            message: "Heymark folder (local absolute path):",
-            default: currentHeymarkPath,
-        },
-        {
-            type: "input",
-            name: "heymarkGitRemote",
-            message: "Heymark Git repository URL:",
+            name: "postsGitRemote",
+            message: "Posts Git repository URL:",
         },
         {
             type: "input",
@@ -36,26 +27,11 @@ async function setup() {
                 return true;
             },
         },
-
-        {
-            type: "input",
-            name: "postsGitRemote",
-            message: "Posts Git repository URL:",
-        },
-        {
-            type: "input",
-            name: "baseUrl",
-            message: "Deployment URL:",
-            default: URLS.DEPLOYMENT_BASE,
-        },
     ]);
 
     await saveConfig({
-        heymarkPath: answers.heymarkPath,
-        postsRepoPath: answers.postsRepoPath,
-        heymarkGitRemote: answers.heymarkGitRemote,
         postsGitRemote: answers.postsGitRemote,
-        baseUrl: answers.baseUrl,
+        postsRepoPath: answers.postsRepoPath,
     });
 
     console.log(chalk.green("\n✓ Configuration saved to ~/.heymark-config.json"));

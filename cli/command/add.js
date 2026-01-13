@@ -6,10 +6,9 @@ import { execSync } from "child_process";
 import { getConfig } from "../config.js";
 import { DEFAULTS, GIT, FILE } from "../../constants.js";
 
-function createFrontmatter(visibility, sharedWith, createdAt) {
+function createFrontmatter(visibility, createdAt) {
     return `---
 visibility: ${visibility}
-sharedWith: [${sharedWith.join(", ")}]
 createdAt: ${createdAt}
 ---
 
@@ -51,11 +50,10 @@ export default async function addCommand(filepath, options) {
         const timestamp = `${year}.${month}.${day} ${hours}:${minutes}`;
 
         const visibility = DEFAULTS.DEFAULT_VISIBILITY;
-        const sharedWith = [DEFAULTS.DEFAULT_AUTHOR_EMAIL];
         const createdAt = parsed.data.createdAt || timestamp;
 
-        // 배열 형식의 frontmatter 생성
-        const frontmatterText = createFrontmatter(visibility, sharedWith, createdAt);
+        // frontmatter 생성
+        const frontmatterText = createFrontmatter(visibility, createdAt);
         const finalContent = frontmatterText + body.trim();
 
         // Private repo에 파일 저장
@@ -100,7 +98,7 @@ export default async function addCommand(filepath, options) {
         }
 
         // URL 출력
-        console.log(chalk.cyan(`→ ${config.baseUrl}/${slug}.md`));
+        console.log(chalk.cyan(`→ ${config.baseUrl}/${slug}`));
     } catch (error) {
         console.error(chalk.red("✗ Failed to add document"));
         console.error(chalk.dim(error.message));

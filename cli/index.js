@@ -16,6 +16,6 @@ program
     .option("-d, --delete", "Delete original file after adding")
     .action(addCommand);
 
-program.command("open").description("Open heymark project in Cursor").action(openCommand);
+program.command("open").description("Open posts repo in Cursor").action(openCommand);
 
 program.parse();

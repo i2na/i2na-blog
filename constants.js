@@ -15,13 +15,11 @@ export const ENV_VARS = {
 };
 
 export const URLS = {
-    DEPLOYMENT_BASE: "https://blog.yena.io.kr",
     GOOGLE_TOKEN_ENDPOINT: "https://oauth2.googleapis.com/token",
     GOOGLE_USERINFO_ENDPOINT: "https://www.googleapis.com/oauth2/v2/userinfo",
 };
 
 export const DEFAULTS = {
-    DEFAULT_AUTHOR_EMAIL: "",
     DEFAULT_VISIBILITY: "private",
     AUTH_TOKEN_EXPIRY_DAYS: 30,
 };
