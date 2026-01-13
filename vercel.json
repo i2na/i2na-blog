@@ -1,12 +1,12 @@
 {
+    "buildCommand": "echo 'No build needed for API'",
+    "outputDirectory": ".",
+    "installCommand": "yarn install",
+    "framework": null,
     "rewrites": [
         {
             "source": "/api/(.*)",
             "destination": "/api/$1"
-        },
-        {
-            "source": "/(.*)",
-            "destination": "/index.html"
         }
     ]
 }
