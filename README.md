@@ -67,13 +67,13 @@ heymark call
 
 **🔧 Troubleshooting**
 
-**Mac: 권한 오류**
+**1. Mac: 권한 오류**
 
 ```bash
 chmod +x cli/index.js
 ```
 
-**Windows: heymark 명령어 인식 안 됨**
+**2. Windows: heymark 명령어 인식 안 됨**
 
 PowerShell에서 실행 후 재시작:
 
@@ -81,24 +81,41 @@ PowerShell에서 실행 후 재시작:
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";$(yarn global bin)", "User")
 ```
 
-**Windows: MODULE_NOT_FOUND 오류 (한국어 경로)**
+**3. Windows: yarn start 실행 시 MODULE_NOT_FOUND 오류 (한국어 경로)**
 
-사용자 이름이 한국어인 경우 발생하는 오류입니다.  
-예: `Error: Cannot find module 'C:\Users\源?덉쁺\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js'`
+Ex) `Error: Cannot find module 'C:\Users\源?덉쁺\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js'`
 
-1. 프로젝트를 C 드라이브 바로 아래로 이동 (경로에 한국어가 없도록)
-2. CLI 재등록:
+위 예시처럼 에러로그에 알수없는 문자(`源?덉쁺`)가 포함되어 있다면,
+사용자 이름이 한국어이거나 경로에 한국어가 포함되는 경우 발생하는 오류입니다.
+
+1. Corepack 저장소 경로 변경
+
+    1-1. C드라이브 바로 아래의 corepack 폴더 생성(경로: `C:\corepack`)
+
+    1-2. 관리자 권한으로 cmd 실행하여 `setx /M COREPACK_HOME "C:\corepack"` 입력
+
+    1-3. 설정 적용을 위해 터미널 완전히 종료
+
+2. Corepack 활성화
+   관리자 권한으로 cmd 실행하여 `corepack enable` 입력
+
+3. 프로젝트 경로 확인 및 설정
+   프로젝트 폴더가 한글이 없는 경로(예: C:\Blog\heymark)에 있어야 합니다. 프로젝트 폴더로 이동하여 다음을 실행합니다.
 
 ```bash
-# yarn link 제거
-yarn unlink
+# 프로젝트 루트 폴더에서 실행 (예: C:\Blog\heymark)
 
-# CLI 전역 재등록
-yarn link
+# 1. 프로젝트에 맞는 Yarn 버전 고정 및 다운로드 (자동으로 C:\corepack에 저장됨)
+corepack use yarn@1.22.22
 
-# 서버 시작
+# 2. 의존성 패키지 설치
+yarn install
+
+# 3. 서버 실행
 yarn start
 ```
+
+4. 조치 후에 heymark call 호출 시 오류가 생긴다면, `yarn unlink` 후 다시 `yarn link` 실행
 
 **💡 Usage**
 
