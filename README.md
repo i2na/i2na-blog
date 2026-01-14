@@ -65,7 +65,7 @@ heymark call
 -   `postsGitRemote`: 마크다운 게시물을 저장할 private repository의 Git URL
 -   `postsRepoPath`: 해당 repository를 로컬에 clone한 절대 경로
 
-#### Troubleshooting
+**🔧 Troubleshooting**
 
 **Mac: 권한 오류**
 
@@ -81,7 +81,26 @@ PowerShell에서 실행 후 재시작:
 [Environment]::SetEnvironmentVariable("Path", $env:Path + ";$(yarn global bin)", "User")
 ```
 
-#### Usage
+**Windows: MODULE_NOT_FOUND 오류 (한국어 경로)**
+
+사용자 이름이 한국어인 경우 발생하는 오류입니다.  
+예: `Error: Cannot find module 'C:\Users\源?덉쁺\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js'`
+
+1. 프로젝트를 C 드라이브 바로 아래로 이동 (경로에 한국어가 없도록)
+2. CLI 재등록:
+
+```bash
+# yarn link 제거
+yarn unlink
+
+# CLI 전역 재등록
+yarn link
+
+# 서버 시작
+yarn start
+```
+
+**💡 Usage**
 
 **CLI Commands**
 
