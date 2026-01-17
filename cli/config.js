@@ -10,7 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 function getConfigPath() {
-    const packageJsonPath = path.join(__dirname, "../../package.json");
+    const packageJsonPath = path.join(__dirname, "../package.json");
     const packageJson = JSON.parse(fsSync.readFileSync(packageJsonPath, "utf-8"));
     const packageName = packageJson.name;
     return path.join(os.homedir(), `.${packageName}.json`);
