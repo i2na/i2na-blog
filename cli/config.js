@@ -1,9 +1,22 @@
 import fs from "fs/promises";
+import fsSync from "fs";
 import path from "path";
 import os from "os";
 import chalk from "chalk";
+import { fileURLToPath } from "url";
+import { dirname } from "path";
 
-const CONFIG_PATH = path.join(os.homedir(), ".heymark-config.json");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+function getConfigPath() {
+    const packageJsonPath = path.join(__dirname, "../../package.json");
+    const packageJson = JSON.parse(fsSync.readFileSync(packageJsonPath, "utf-8"));
+    const packageName = packageJson.name;
+    return path.join(os.homedir(), `.${packageName}.json`);
+}
+
+const CONFIG_PATH = getConfigPath();
 
 export async function getConfig() {
     try {
@@ -22,6 +35,16 @@ export async function getConfig() {
     }
 }
 
-export async function saveConfig(config) {
-    await fs.writeFile(CONFIG_PATH, JSON.stringify(config, null, 2), "utf-8");
+export async function saveConfig(config, cliName) {
+    let configPath;
+    if (cliName) {
+        const packageJsonPath = path.join(process.cwd(), "package.json");
+        const packageJson = JSON.parse(await fs.readFile(packageJsonPath, "utf-8"));
+        const packageName = packageJson.name;
+        configPath = path.join(os.homedir(), `.${packageName}.json`);
+    } else {
+        configPath = CONFIG_PATH;
+    }
+    await fs.writeFile(configPath, JSON.stringify(config, null, 2), "utf-8");
+    return configPath;
 }
