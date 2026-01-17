@@ -4,6 +4,31 @@
 
 마크다운으로 지식을 빠르게 기록하고, 문서별 이메일 권한으로 공유 범위를 쉽게 제어하는 아카이브 오픈소스
 
+## Members
+
+<table>
+  <tr>
+    <th align="center">Developer</th>
+    <th align="center">Developer</th>
+  </tr>
+  <tr>
+    <td align="center">이예나</td>
+    <td align="center">김예영</td>
+  </tr>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/i2na">
+        <img src="https://avatars.githubusercontent.com/u/147997324?v=4" alt="yena-lee" width="100" height="100">
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/yezzero">
+        <img src="https://avatars.githubusercontent.com/u/156979966?v=4" alt="yeyoung-kim" width="100" height="100">
+      </a>
+    </td>
+  </tr>
+</table>
+
 ## Setup
 
 ### 1. Installation
@@ -58,20 +83,35 @@ node setup.js
 yarn link
 
 # 설치 확인
-heymark call
+# 설정 시 입력한 CLI 명령어 이름으로 실행 (예: heymark call)
+<cli-command-name> call
 ```
 
-설정 파일이 `~/.heymark-config.json`에 생성됩니다:
+설정 파일이 `~/.${packageName}.json` 형식으로 생성됩니다 (예: `~/.heymark-cli.json`):
+
+-   `packageName`은 `setup.js` 실행 시 `{cliName}-cli` 형식으로 자동 설정됩니다
 
 ```json
 {
-    "postsGitRemote": "https://github.com/your/posts-archive.git",
-    "postsRepoPath": "/Users/your/posts-archive"
+    "cliName": "heymark", // CLI 명령어 이름
+    "postsGitRemote": "https://github.com/your/posts-archive.git", // 마크다운 게시물을 저장할 private repository의 Git URL
+    "postsRepoPath": "/Users/your/posts-archive" // 해당 repository를 로컬에 clone한 절대 경로
 }
 ```
 
--   `postsGitRemote`: 마크다운 게시물을 저장할 private repository의 Git URL
--   `postsRepoPath`: 해당 repository를 로컬에 clone한 절대 경로
+**CLI 설정 제거**
+
+CLI를 더 이상 사용하지 않을 경우:
+
+```bash
+# 1. 프로젝트 디렉토리에서 전역 링크 해제
+cd /path/to/project
+yarn unlink
+
+# 2. 설정 파일 삭제 (선택사항)
+# 설정 파일 경로는 ~/.${packageName}.json 형식입니다
+rm ~/.heymark-cli.json  # 예시
+```
 
 **🔧 Troubleshooting**
 
@@ -81,7 +121,7 @@ heymark call
 chmod +x cli/index.js
 ```
 
-**2. Windows: heymark 명령어 인식 안 됨**
+**2. Windows: CLI 명령어 인식 안 됨**
 
 PowerShell에서 실행 후 재시작:
 
@@ -123,28 +163,30 @@ yarn install
 yarn start
 ```
 
-4. 조치 후에 heymark call 호출 시 오류가 생긴다면, `yarn unlink` 후 다시 `yarn link` 실행
+4. 조치 후에 CLI 명령어 호출 시 오류가 생긴다면, `yarn unlink` 후 다시 `yarn link` 실행
 
 **💡 Usage**
 
 **CLI Commands**
 
+설정 시 입력한 CLI 명령어 이름으로 실행합니다 (예: `heymark`):
+
 ```bash
 # 문서 작성용 프롬프트를 클립보드에 복사
-heymark call
+<cli-command-name> call
 
 # 문서를 heymark에 추가 (filepath는 문서의 절대 경로)
-heymark add <filepath>              # 원본 파일 유지
-heymark add <filepath> --delete     # 원본 파일 삭제
-heymark add <filepath> -d           # 원본 파일 삭제 (단축)
+<cli-command-name> add <filepath>              # 원본 파일 유지
+<cli-command-name> add <filepath> --delete     # 원본 파일 삭제
+<cli-command-name> add <filepath> -d           # 원본 파일 삭제 (단축)
 
 # posts-archive를 Cursor로 열기
-heymark open
+<cli-command-name> open
 ```
 
 **Default Values**
 
-`heymark add` CLI로 추가할 때 기본값:
+`<cli-command-name> add` CLI로 추가할 때 기본값:
 
 -   `visibility: private`
 -   `createdAt: 현재시간`
@@ -216,28 +258,3 @@ GOOGLE_CLIENT_SECRET=your-google-client-secret
 BASE_URL=http://localhost:5174
 VITE_BASE_URL=http://localhost:5174
 ```
-
-### 7. Members
-
-<table>
-  <tr>
-    <th align="center">Developer</th>
-    <th align="center">Developer</th>
-  </tr>
-  <tr>
-    <td align="center">이예나</td>
-    <td align="center">김예영</td>
-  </tr>
-  <tr>
-    <td align="center">
-      <a href="https://github.com/i2na">
-        <img src="https://avatars.githubusercontent.com/u/147997324?v=4" alt="yena-lee" width="100" height="100">
-      </a>
-    </td>
-    <td align="center">
-      <a href="https://github.com/yezzero">
-        <img src="https://avatars.githubusercontent.com/u/156979966?v=4" alt="yeyoung-kim" width="100" height="100">
-      </a>
-    </td>
-  </tr>
-</table>
