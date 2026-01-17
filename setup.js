@@ -10,6 +10,21 @@ async function setup() {
     const answers = await inquirer.prompt([
         {
             type: "input",
+            name: "cliName",
+            message: "CLI command name:",
+            default: "heymark",
+            validate: (input) => {
+                if (!input || input.trim() === "") {
+                    return "CLI command name is required";
+                }
+                if (!/^[a-z0-9-]+$/.test(input)) {
+                    return "CLI command name can only contain lowercase letters, numbers, and hyphens";
+                }
+                return true;
+            },
+        },
+        {
+            type: "input",
             name: "postsGitRemote",
             message: "Posts Git repository URL:",
         },
@@ -30,6 +45,7 @@ async function setup() {
     ]);
 
     await saveConfig({
+        cliName: answers.cliName,
         postsGitRemote: answers.postsGitRemote,
         postsRepoPath: answers.postsRepoPath,
     });
@@ -37,7 +53,7 @@ async function setup() {
     console.log(chalk.green("\n✓ Configuration saved to ~/.heymark-config.json"));
     console.log(chalk.dim("\nNext steps:"));
     console.log(chalk.dim("  1. yarn link"));
-    console.log(chalk.dim("  2. heymark call"));
+    console.log(chalk.dim(`  2. ${answers.cliName} call`));
 }
 
 setup().catch((error) => {

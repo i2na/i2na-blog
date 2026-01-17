@@ -22,6 +22,14 @@ cd heymark
 yarn install
 ```
 
+#### 커스터마이징 설정
+
+Fork한 프로젝트에서 `client/public/custom/` 폴더의 파일들을 커스터마이징한 후에도, heymark의 변경사항을 받아올 때 충돌 없이 Fork한 프로젝트의 커스터마이징이 유지되도록 하기 위해 다음 설정이 필요합니다:
+
+```bash
+git config merge.ours.driver true
+```
+
 ### 2. Private Repository Setup
 
 먼저 마크다운 게시물 파일들을 저장할 private repository를 생성합니다:

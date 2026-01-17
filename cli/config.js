@@ -13,6 +13,7 @@ export async function getConfig() {
         return {
             postsGitRemote: config.postsGitRemote,
             postsRepoPath: config.postsRepoPath,
+            cliName: config.cliName,
         };
     } catch (error) {
         console.error(chalk.red("✗ Config file not found"));
