@@ -106,7 +106,7 @@ heymark는 **개발과 문서화의 경계를 없애는 것**을 목표로 합�
 
 이를 통해 개발 과정에서 발견한 개념을 즉시 마크다운으로 정리하고, CLI 명령어 하나로 Skill에 반영할 수 있는 환경을 제공합니다.
 
-<img src="https://pub-58d3a7a925964dbb81502d7829c69dd6.r2.dev/about_heymark_1.png">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/7991423e-bb37-4055-8f90-f2f0cbc2044a" />
 
 ### 유연한 접근 권한 관리
 
@@ -114,8 +114,9 @@ heymark는 **개발과 문서화의 경계를 없애는 것**을 목표로 합�
 
 heymark는 간단한 URL 구조를 제공하며, md 문서의 frontmatter에 public/private 선택과 private일 경우 공유할 이메일만 추가하면 해당 이메일로 로그인한 사용자만 접근할 수 있습니다.
 
-<img src="https://pub-58d3a7a925964dbb81502d7829c69dd6.r2.dev/about_heymark_2.png">
-<img src="https://pub-58d3a7a925964dbb81502d7829c69dd6.r2.dev/about_heymark_3.png">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/3e6373d3-5392-40d7-b71f-d241ed5e3e6c" />
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/c0bf9403-598c-407a-b761-664a310d75ee" />
+
 
 ### 자동 목차 생성 및 앵커 링크
 
@@ -123,14 +124,14 @@ heymark는 간단한 URL 구조를 제공하며, md 문서의 frontmatter에 pub
 
 이는 Claude Skill의 reference 문서에서 특정 패턴이나 개념을 직접 링크로 공유할 수 있게 하여, 팀 협업과 지식 공유를 용이하게 합니다.
 
-<img src="https://pub-58d3a7a925964dbb81502d7829c69dd6.r2.dev/about_heymark_4.png">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/a9a7e12e-030c-46f3-877e-2a83a13370e6" />
 
 ### Admin 기능
 
 관리자로 지정된 이메일로 로그인하면 게시물 삭제, public/private 전환, private 문서의 공유 대상 추가 및 삭제를 할 수 있습니다. 공유 대상 추가 시 미리 등록된 이메일 목록에서 선택할 수 있습니다.
 
-<img src="https://pub-58d3a7a925964dbb81502d7829c69dd6.r2.dev/about_heymark_5.png">
-<img src="https://pub-58d3a7a925964dbb81502d7829c69dd6.r2.dev/about_heymark_6.png">
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/2cb9d974-c692-4582-8256-0c1b966e92c1" />
+<img width="500" alt="image" src="https://github.com/user-attachments/assets/fc9f3e26-38aa-4449-a6ba-a8ca596516b4" />
 
 ## 기술적 특징
 
@@ -139,10 +140,6 @@ heymark는 간단한 URL 구조를 제공하며, md 문서의 frontmatter에 pub
 블로그 애플리케이션 코드는 Public Repository에, 실제 마크다운 포스트는 Private Repository에 저장됩니다. 코드는 오픈소스로 공개하면서도 콘텐츠는 안전하게 관리할 수 있습니다. GitHub API를 통해 private repository의 포스트를 동적으로 가져오며, frontmatter 기반의 권한 관리로 접근을 제어합니다.
 
 이러한 구조는 Git 기반 버전 관리를 제공하여 문서의 변경 이력을 추적하고 롤백할 수 있게 하며, 지식의 진화 과정을 관리할 수 있습니다.
-
-<img src="https://pub-58d3a7a925964dbb81502d7829c69dd6.r2.dev/about_heymark_7.png">
-<img src="https://pub-58d3a7a925964dbb81502d7829c69dd6.r2.dev/about_heymark_8.png">
-<img src="https://pub-58d3a7a925964dbb81502d7829c69dd6.r2.dev/about_heymark_9.png">
 
 ### 확장 가능한 아키텍처
 
