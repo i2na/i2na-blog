@@ -66,7 +66,7 @@ git config merge.ours.driver true
 # 2. Personal Access Token 생성
 # GitHub → Settings → Developer settings → Personal access tokens → Tokens (classic)
 # Scopes: repo
-# 토큰을 복사해서 안전하게 보관
+# 토큰을 복사해서 안전하게 보관 (환경변수 POSTS_GITHUB_TOKEN로 사용)
 
 # 3. 로컬에 Clone
 ```
@@ -77,7 +77,7 @@ git config merge.ours.driver true
 # 프로젝트 루트에서 실행
 
 # 초기 설정
-node setup.js
+yarn setup
 
 # CLI 전역 등록
 yarn link
@@ -89,7 +89,7 @@ yarn link
 
 설정 파일이 `~/.${packageName}.json` 형식으로 생성됩니다 (예: `~/.heymark-cli.json`):
 
--   `packageName`은 `setup.js` 실행 시 `{cliName}-cli` 형식으로 자동 설정됩니다
+-   `packageName`은 `yarn setup` 실행 시 `{cliName}-cli` 형식으로 자동 설정됩니다
 
 ```json
 {
@@ -243,18 +243,15 @@ yarn start
 프로젝트 루트에 `.env` 파일을 생성하고 다음 환경 변수들을 설정합니다:
 
 ```bash
-POSTS_REPO_OWNER=your-github-username
-POSTS_REPO_NAME=your-posts-archive-repo-name
-
-# GitHub Personal Access Token (Private Repository 접근용)
-POSTS_GITHUB_TOKEN=ghp_xxxxxxxxxxxxx
+# 배포 URL (로컬 개발: http://localhost:5174, 배포: https://your-heymark-url.com)
+VITE_BASE_URL=http://localhost:5174
 
 # Google OAuth 설정
-GOOGLE_CLIENT_ID=your-google-client-id
 VITE_GOOGLE_CLIENT_ID=your-google-client-id
 GOOGLE_CLIENT_SECRET=your-google-client-secret
 
-# 배포 URL (로컬 개발: http://localhost:5174, 배포: https://your-heymark-url.com)
-BASE_URL=http://localhost:5174
-VITE_BASE_URL=http://localhost:5174
+# Private Repository 접근
+POSTS_REPO_OWNER=your-github-username
+POSTS_REPO_NAME=your-posts-archive-repo-name
+POSTS_GITHUB_TOKEN=ghp_xxxxxxxxxxxxx
 ```

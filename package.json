@@ -14,7 +14,7 @@
         "start": "concurrently \"vercel dev --listen 3000\" \"cd client && yarn dev\"",
         "build": "yarn workspace heymark-client build",
         "preview": "yarn workspace heymark-client preview",
-        "setup": "node setup.js"
+        "setup": "node cli/setup.js"
     },
     "dependencies": {
         "@vercel/node": "^3.0.0",

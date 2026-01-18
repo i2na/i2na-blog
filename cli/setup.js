@@ -1,5 +1,5 @@
 import inquirer from "inquirer";
-import { saveConfig } from "./cli/config.js";
+import { saveConfig } from "./util/config.js";
 import chalk from "chalk";
 import path from "path";
 import fs from "fs/promises";

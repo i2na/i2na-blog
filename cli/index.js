@@ -3,7 +3,7 @@ import { Command } from "commander";
 import callCommand from "./command/call.js";
 import addCommand from "./command/add.js";
 import openCommand from "./command/open.js";
-import { getConfig } from "./config.js";
+import { getConfig } from "./util/config.js";
 
 const config = await getConfig();
 
