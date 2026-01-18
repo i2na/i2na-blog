@@ -3,14 +3,9 @@ import fsSync from "fs";
 import path from "path";
 import os from "os";
 import chalk from "chalk";
-import { fileURLToPath } from "url";
-import { dirname } from "path";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
 
 function getConfigPath() {
-    const packageJsonPath = path.join(__dirname, "../package.json");
+    const packageJsonPath = path.join(process.cwd(), "package.json");
     const packageJson = JSON.parse(fsSync.readFileSync(packageJsonPath, "utf-8"));
     const packageName = packageJson.name;
     return path.join(os.homedir(), `.${packageName}.json`);
@@ -30,7 +25,7 @@ export async function getConfig() {
         };
     } catch (error) {
         console.error(chalk.red("✗ Config file not found"));
-        console.error(chalk.dim('Run "node setup.js" first'));
+        console.error(chalk.dim('Run "yarn setup" first'));
         process.exit(1);
     }
 }
